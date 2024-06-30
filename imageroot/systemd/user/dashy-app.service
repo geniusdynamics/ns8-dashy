@@ -22,6 +22,7 @@ ExecStart=/usr/bin/podman run --conmon-pidfile %t/dashy-app.pid \
     --cidfile %t/dashy-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/dashy.pod-id --replace -d --name  dashy-app \
     --volume dashy-app:/app/user-data/conf.yml \
+    --env-file=%S/state/app.env \
     ${DASHY_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/dashy-app.ctr-id -t 10
 ExecReload=/usr/bin/podman kill -s HUP dashy-app
