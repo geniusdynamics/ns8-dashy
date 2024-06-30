@@ -10,8 +10,8 @@
 
 [Unit]
 Description=Podman dashy.service
-Requires=mariadb-app.service dashy-app.service
-Before=mariadb-app.service dashy-app.service
+Requires=dashy-app.service
+Before=dashy-app.service
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n
