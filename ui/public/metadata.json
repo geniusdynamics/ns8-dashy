@@ -6,14 +6,14 @@
   "categories": [],
   "authors": [
     {
-      "name": "Name Surname",
-      "email": "author@yourmail.org"
+      "name": "Genius Dynamics",
+      "email": "support@genius.ke"
     }
   ],
   "docs": {
     "documentation_url": "https://docs.dashy.com/",
-    "bug_url": "https://github.com/NethServer/dev",
-    "code_url": "https://github.com/author/ns8-dashy"
+    "bug_url": "https://github.com/geniusdynamics/ns8-dashy/issues",
+    "code_url": "https://github.com/geniusdynamics/ns8-dashy"
   },
-  "source": "ghcr.io/nethserver/dashy"
+  "source": "ghcr.io/geniusdynamics/dashy"
 }

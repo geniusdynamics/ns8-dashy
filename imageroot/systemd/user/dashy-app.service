@@ -10,19 +10,17 @@ After=dashy.service
 
 [Service]
 Environment=PODMAN_SYSTEMD_UNIT=%n
-EnvironmentFile=%S/state/environment
-EnvironmentFile=-%S/state/smarthost.env
-WorkingDirectory=%S/state
+EnvironmentFile=%E/state/environment
+WorkingDirectory=%E/state
 Restart=always
 TimeoutStopSec=70
 ExecStartPre=/bin/mkdir -p tmp
 ExecStartPre=/bin/rm -f %t/dashy-app.pid %t/dashy-app.ctr-id
-ExecStartPre=-runagent discover-smarthost
 ExecStart=/usr/bin/podman run --conmon-pidfile %t/dashy-app.pid \
     --cidfile %t/dashy-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/dashy.pod-id --replace -d --name  dashy-app \
     --volume dashy-app:/app/user-data/conf.yml \
-    --env-file=%S/state/app.env \
+    --env-file=%E/state/app.env \
     ${DASHY_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/dashy-app.ctr-id -t 10
 ExecReload=/usr/bin/podman kill -s HUP dashy-app
