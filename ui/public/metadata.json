@@ -1,9 +1,12 @@
 {
   "name": "dashy",
   "description": {
-    "en": "My dashy module"
+    "en": "Dashy is a self-hosted start page that gathers links and status checks for your services in one customizable dashboard.",
+    "it": "Dashy è una pagina iniziale self-hosted che raccoglie link e stato dei servizi in un'unica dashboard personalizzabile."
   },
-  "categories": [],
+  "categories": [
+    "system_administration"
+  ],
   "authors": [
     {
       "name": "Genius Dynamics",
