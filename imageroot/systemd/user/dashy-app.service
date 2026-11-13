@@ -19,7 +19,7 @@ ExecStartPre=/bin/rm -f %t/dashy-app.pid %t/dashy-app.ctr-id
 ExecStart=/usr/bin/podman run --conmon-pidfile %t/dashy-app.pid \
     --cidfile %t/dashy-app.ctr-id --cgroups=no-conmon \
     --pod-id-file %t/dashy.pod-id --replace -d --name  dashy-app \
-    --volume dashy-app:/app/user-data/conf.yml \
+    --volume dashy-app:/app/user-data:Z \
     --env-file=%E/state/app.env \
     ${DASHY_IMAGE}
 ExecStop=/usr/bin/podman stop --ignore --cidfile %t/dashy-app.ctr-id -t 10
