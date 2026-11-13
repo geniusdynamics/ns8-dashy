@@ -20,6 +20,8 @@ HOST = data.get('host', 'localhost')
 app_config = {
     # HOST is the listen address of the Dashy server, not the public name
     "HOST": "0.0.0.0",
+    # Dashy 3+ serves on port 8080 (unprivileged): the pod publishes it
+    "PORT": "8080",
     "NODE_ENV": "production"
 }
 agent.write_envfile("app.env",app_config)
