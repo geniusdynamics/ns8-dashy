@@ -18,7 +18,10 @@ data = json.load(sys.stdin)
 # Upper case to set environment variable and minor case to read from stdin
 HOST = data.get('host', 'localhost')
 app_config = {
-    "HOST": "https://"+HOST,
+    # HOST is the listen address of the Dashy server, not the public name
+    "HOST": "0.0.0.0",
+    # Dashy 3+ serves on port 8080 (unprivileged): the pod publishes it
+    "PORT": "8080",
     "NODE_ENV": "production"
 }
 agent.write_envfile("app.env",app_config)
